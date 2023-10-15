@@ -4,6 +4,7 @@
 # defaults
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
+PYTHON_PATH ?= frequency_counter/test
 
 # normal simulation
 ifneq ($(GATES),yes)
