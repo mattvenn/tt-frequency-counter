@@ -17,13 +17,23 @@ module tb ();
     end
 
     // wire up the inputs and outputs
-    reg  clk;
-    reg  rst_n;
-    reg  ena;
-    reg  [7:0] ui_in;
-    reg  [7:0] uio_in;
+    reg clk;
+    reg rst_n;
+    reg ena;
+    reg debug_mode;
+    reg signal;
+    reg [7:0] period;
+    reg load_period;
 
+    // convenience names, easier to read in the trace and cocotb test
+    wire [1:0] dbg_state = uio_out[1:0];
+    wire [2:0] dbg_clk_count = uio_out[4:2];
+    wire [2:0] dbg_edge_count = uio_out[7:5];
+    wire digit = uo_out[7];
     wire [6:0] segments = uo_out[6:0];
+
+    wire [7:0] ui_in = { 5'bz, load_period, debug_mode, signal };
+    wire [7:0] uio_in = period;
     wire [7:0] uo_out;
     wire [7:0] uio_out;
     wire [7:0] uio_oe;

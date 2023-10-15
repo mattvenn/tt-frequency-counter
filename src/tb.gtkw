@@ -1,35 +1,86 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Sun Oct 15 10:17:16 2023
+[*] Sun Oct 15 15:35:16 2023
 [*]
 [dumpfile] "/home/matt/work/asic-workshop/shuttle-2309C/tt-frequency-counter/src/tb.vcd"
-[dumpfile_mtime] "Sun Oct 15 10:16:10 2023"
-[dumpfile_size] 4075
+[dumpfile_mtime] "Sun Oct 15 15:34:13 2023"
+[dumpfile_size] 2715766
 [savefile] "/home/matt/work/asic-workshop/shuttle-2309C/tt-frequency-counter/src/tb.gtkw"
-[timestart] 0
-[size] 1000 600
+[timestart] 2396460000
+[size] 1848 1016
 [pos] -1 -1
-*-27.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-21.000000 2401230000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb.
+[treeopen] tb.tt_um_frequency_counter.
+[treeopen] tb.tt_um_frequency_counter.frequency_counter.
 [sst_width] 233
-[signals_width] 134
+[signals_width] 284
 [sst_expanded] 1
-[sst_vpaned_height] 144
+[sst_vpaned_height] 288
+@28
+tb.clk
+tb.rst_n
 @22
 tb.segments[6:0]
 @28
-tb.rst_n
-tb.clk
-@22
-tb.ui_in[7:0]
-tb.uio_out[7:0]
-@28
-tb.tt_um_frequency_counter.mode
+tb.digit
 @22
 tb.tt_um_frequency_counter.period[11:0]
 @28
-tb.tt_um_frequency_counter.load_period
-@29
+tb.load_period
 tb.tt_um_frequency_counter.reset
+tb.debug_mode
+@800200
+-freq counter
+@28
+tb.tt_um_frequency_counter.frequency_counter.clk
+@c00023
+tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+@28
+(0)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(1)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(2)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(3)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(4)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(5)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(6)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(7)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(8)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(9)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(10)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+(11)tb.tt_um_frequency_counter.frequency_counter.clk_counter[11:0]
+@1401201
+-group_end
+@28
+tb.tt_um_frequency_counter.frequency_counter.digit
+@22
+tb.tt_um_frequency_counter.frequency_counter.edge_counter[6:0]
+tb.tt_um_frequency_counter.frequency_counter.period[11:0]
+@28
+tb.tt_um_frequency_counter.frequency_counter.period_load
+tb.tt_um_frequency_counter.frequency_counter.reset
+tb.tt_um_frequency_counter.frequency_counter.signal
+@1000200
+-freq counter
+@800200
+-debug
+@c00028
+tb.dbg_clk_count[2:0]
+@28
+(0)tb.dbg_clk_count[2:0]
+(1)tb.dbg_clk_count[2:0]
+(2)tb.dbg_clk_count[2:0]
+@1401200
+-group_end
+@28
+tb.dbg_edge_count[2:0]
+tb.dbg_state[1:0]
+@1000200
+-debug
+@28
+tb.tt_um_frequency_counter.frequency_counter.edge_detect0.leading_edge_detect
+tb.tt_um_frequency_counter.frequency_counter.edge_detect0.q0
+tb.tt_um_frequency_counter.frequency_counter.edge_detect0.q1
+tb.tt_um_frequency_counter.frequency_counter.edge_detect0.q2
 [pattern_trace] 1
 [pattern_trace] 0

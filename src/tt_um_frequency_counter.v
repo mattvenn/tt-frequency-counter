@@ -13,13 +13,13 @@ module tt_um_frequency_counter #( parameter MAX_COUNT = 24'd10_000_000 ) (
 
     wire reset = !rst_n;
     wire signal = ui_in[0];
-    wire mode = ui_in[1];
+    wire debug_mode = ui_in[1];
     wire load_period = ui_in[2];
 
     // use bidirectionals for 2 purposes, either debug state out, or period as input
     // depend on mode switch ui_in[1]
     // if mode input is high then debug enabled
-    assign uio_oe = {12{mode}};
+    assign uio_oe = {8{debug_mode}};
 
     // top 8 bits of 12 bit period given by uio_in
     wire [11:0] period = { uio_in[7:0], 4'b0};
@@ -35,8 +35,8 @@ module tt_um_frequency_counter #( parameter MAX_COUNT = 24'd10_000_000 ) (
         .digit(uo_out[7]),            // 1 bit
 
         .dbg_state(uio_out[1:0]),      // 2 bit state machine
-        .dbg_clk_count(uio_out[4:2]),  // top 3 bits of clk counter
-        .dbg_edge_count(uio_out[7:5])  // top 3 bits of edge counter
+        .dbg_clk_count(uio_out[4:2]),  // top 3 bits of 12 clk counter
+        .dbg_edge_count(uio_out[7:5])  // top 3 bits of 7 bit edge counter
     );
 
 endmodule
