@@ -34,9 +34,9 @@ module tt_um_frequency_counter #( parameter MAX_COUNT = 24'd10_000_000 ) (
         .segments(uo_out[6:0]),       // 7 bits
         .digit(uo_out[7]),            // 1 bit
 
-        dbg_state(uio_out[1:0]),      // 2 bit state machine
-        dbg_clk_count(uio_out[4:2]),  // top 3 bits of clk counter
-        dbg_edge_count(uio_out[7:5])  // top 3 bits of edge counter
+        .dbg_state(uio_out[1:0]),      // 2 bit state machine
+        .dbg_clk_count(uio_out[4:2]),  // top 3 bits of clk counter
+        .dbg_edge_count(uio_out[7:5])  // top 3 bits of edge counter
     );
 
 endmodule
