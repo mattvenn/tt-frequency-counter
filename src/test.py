@@ -6,6 +6,8 @@ import random
 
 async def reset(dut):
     dut.rst_n.value = 0
+    dut.signal.value = 0
+    dut.load_period.value = 0
     dut.debug_mode.value = 0
     await ClockCycles(dut.clk, 5)
     dut.rst_n.value = 1;
