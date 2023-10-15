@@ -1,0 +1,3 @@
+[submodule "src/frequency_counter"]
+	path = src/frequency_counter
+	url = https://github.com/mattvenn/frequency_counter.git
