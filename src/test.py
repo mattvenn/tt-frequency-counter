@@ -14,19 +14,18 @@ async def reset(dut):
     await ClockCycles(dut.clk, 5)
 
 async def update_period(dut, period):
-    # period is a 12 bit counter, and we just provide the top 8 bits to the bidirectional inputs
-    # when mode is 0
+    # period is a 12 bit counter, top 4 via ui_in[7:5] and bottom 8 via uio_in (when debug_mode is 0)
+    dut._log.info(f"set period to be {period} cycles")
     dut.debug_mode.value = 0
-    dut.period.value = period >> 4
+    dut.period.value = period 
     dut.load_period.value = 1
     await ClockCycles(dut.clk, 1)
     dut.load_period.value = 0
     await ClockCycles(dut.clk, 1)
-    return period & 0xFF0
 
 @cocotb.test()
 async def test_frequency_count(dut):
-    clock_mhz = 10
+    clock_mhz = 12
     clk_period_ns = round(1/clock_mhz * 1000, 2)
     dut._log.info(f"input clock = {clock_mhz} MHz = period {clk_period_ns} ns")
 
@@ -36,9 +35,7 @@ async def test_frequency_count(dut):
    
     # adjust the update period to match clock freq
     period = clock_mhz * 100 - 1
-    achieved_period = await update_period(dut, period)
-    # we won't get exact numbers unless the loaded period matches the clock exactly
-    dut._log.info(f"set period {period}, achieved {achieved_period}")
+    await update_period(dut, period)
     
     for input_freq in [10, 15, 31, 69, 75, 90]:
         # create an input signal
@@ -50,8 +47,8 @@ async def test_frequency_count(dut):
         output_freq = await read_segments(dut)
         dut._log.info(f"input freq = {input_freq} kHz, period = {period_us} us, display = {output_freq}")
 
-        # account for period not exactly matching clock
-        assert abs(output_freq - input_freq) <= 1
+        # output of the display should match the input frequency
+        assert output_freq == input_freq
 
         # kill signal
         input_signal.kill()

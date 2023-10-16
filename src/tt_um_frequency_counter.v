@@ -21,8 +21,8 @@ module tt_um_frequency_counter #( parameter MAX_COUNT = 24'd10_000_000 ) (
     // if mode input is high then debug enabled
     assign uio_oe = {8{debug_mode}};
 
-    // top 8 bits of 12 bit period given by uio_in
-    wire [11:0] period = { uio_in[7:0], 4'b0};
+    // 12 bit period given by top 4 bits of ui_in and all of uio_in
+    wire [11:0] period = {ui_in[7:4], uio_in[7:0]};
 
     frequency_counter frequency_counter(
         .clk(clk),
